@@ -9,27 +9,33 @@ namespace assignment1
 {
     class CSVProcessor
     {
+        public static bool fileLoaded;
+        private int index;
+
         private StreamReader reader = new StreamReader(
-            File.OpenRead(@"    C:\Users\Josh\Documents\GitHub\cis237assignment1\datafiles\WineList.csv     ")
+            File.OpenRead(@"../../../datafiles/WineList.csv")
             );
 
         public CSVProcessor()
         {
-            List<string> idList = new List<string>();
-            List<string> descriptionList = new List<string>();
-            List<string> packList = new List<string>();
-
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
                 var values = line.Split(',');
 
-                idList.Add(values[0]);
-                descriptionList.Add(values[1]);
-                packList.Add(values[2]);
+                string id = values[0];
+                string description = values[1];
+                string pack = values[2];
+
+                WineItem wineItem = new WineItem(id, description, pack);
+                WineItemCollection.wineList[index];
+                index++;
             }
 
             Console.WriteLine("100%...File Load Complete!");
+            Console.WriteLine(Environment.NewLine);
+            fileLoaded = true;
+            Program.MainPrompt();
         }
     }
 }

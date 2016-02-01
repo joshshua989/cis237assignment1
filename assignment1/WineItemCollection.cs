@@ -8,9 +8,21 @@ namespace assignment1
 {
     class WineItemCollection
     {
-        private List<string> idList = new List<string>();
-        private List<string> descriptionList = new List<string>();
-        private List<string> packList = new List<string>();
+        public static string[] wineList;
+
+        public static void ListItems()
+        {
+            int index = 0;
+            foreach (string e in WineItemCollection.wineList)
+            {
+                var line = WineItemCollection.wineList[index];
+                Console.WriteLine(line.Split(','));
+                index++;
+            }
+
+            Console.WriteLine(Environment.NewLine);
+            Program.MainPrompt();
+        }
     }
 }
 
