@@ -10,17 +10,19 @@ namespace assignment1
     {
         public static string[] wineList;
 
+        // CALLED FROM MENU -- WRITE DATA FILE INFO TO SCREEN
         public static void ListItems()
         {
-            int index = 0;
-            foreach (string e in WineItemCollection.wineList)
+            for (int index = 0; index < CSVProcessor.idList.Count; index++)
             {
-                var line = WineItemCollection.wineList[index];
-                Console.WriteLine(line.Split(','));
-                index++;
+                Console.WriteLine("         ID:  " + CSVProcessor.idList[index]);
+                Console.WriteLine("DESCRIPTION:  " + CSVProcessor.descriptionList[index]);
+                Console.WriteLine("  PACK SIZE:  " + CSVProcessor.packList[index]);
+                Console.WriteLine();
             }
 
             Console.WriteLine(Environment.NewLine);
+            // CALL USER PROMPT MENU
             Program.MainPrompt();
         }
     }
